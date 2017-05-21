@@ -52,7 +52,7 @@ def download_all_pics_incremental():
     for cur, url in enumerate(cover_img_url_list):
         save_pic_from_url(url)
         print('{}/{}, {}% complete. Finished downloading: {}'.format(
-            cur, total, format(cur/total*100, '0.2f'), url))
+            cur + 1, total, format(cur+1/total*100, '0.2f'), url))
 
     cursor = db['pics'].find({'filePath': None})
     pic_url_list = [i['url'] for i in cursor]
@@ -63,7 +63,7 @@ def download_all_pics_incremental():
             continue
         save_pic_from_url(url)
         print('{}/{}, {}% complete. Finished downloading: {}'.format(
-            cur, total, format(cur/total*100, '0.2f'), url))
+            cur + 1, total, format(cur+1/total*100, '0.2f'), url))
 
     update_db_according_to_file()
 
