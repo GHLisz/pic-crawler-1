@@ -107,8 +107,9 @@ class GeneralSet:
                 pic_urls_data = soup.select('div.imga > p > img')
             pic_urls.extend([i.get('src') for i in pic_urls_data])
         for pic_url in pic_urls:
-            pic_data = Pic(pic_url, self._url).data()
-            pic_data_list.append(pic_data)
+            if pic_url:
+                pic_data = Pic(pic_url, self._url).data()
+                pic_data_list.append(pic_data)
         return pic_data_list
 
     def write_unique_children_data_to_db(self):

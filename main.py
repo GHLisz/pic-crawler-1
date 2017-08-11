@@ -25,7 +25,7 @@ def db_insert_all_pic_sets_incremental():
             error_list_logger.info('Error occurred processing: {} in {}'.
                                    format(host_url+channel_url, 'channel.write_unique_children_data_to_db()'))
         prj_logger.info('{}/{}, {}% complete. Finished visiting channel: {}'.format(
-            cur + 1, total, format(cur+1/total*100, '0.2f'), channel_url))
+            cur + 1, total, format((cur+1)/total*100, '0.2f'), channel_url))
 
 
 def db_insert_all_pics_incremental():
@@ -47,7 +47,7 @@ def db_insert_all_pics_incremental():
             error_list_logger.info('Error occurred processing: {} in {}'.
                                    format(host_url+url, 'pic_set.write_unique_children_data_to_db()'))
         prj_logger.info('{}/{}, {}% complete. Finished visiting set: {}'.format(
-            cur + 1, total, format(cur+1/total*100, '0.2f'), url))
+            cur + 1, total, format((cur+1)/total*100, '0.2f'), url))
 
 
 if __name__ == '__main__':
